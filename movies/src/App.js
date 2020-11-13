@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col } from 'react-bootstrap'
-import NavBar from './Components/Navbar'
+import NavBar from './Components/NavBar'
 import Homepage from './Components/Homepage'
 import { Route } from 'react-router-dom'
 
@@ -15,6 +15,7 @@ class App extends Component {
       dropdownSelection: ""
       , formInput: ""
     }
+    this.path = window.location.pathname
   }
 
   setStateFromUrl = () => {

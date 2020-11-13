@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
+import Navbar from 'react-bootstrap/NavBar'
 import { Link } from 'react-router-dom'
 //import bgImage from '../../src/Images/balogo.png'
 
@@ -10,7 +10,7 @@ function NavBar(props) {
             <Navbar.Brand as={Link} to="/" style={{ color: "red" }}></Navbar.Brand>
             <Navbar.Text style={{ color: "red" , paddingTop: 50 , textAlign: "bottom" }}><h2>Movies</h2></Navbar.Text>
 
-            <SearchForm sendInput={props.sendInput} />
+
 
         </Navbar>
     )
