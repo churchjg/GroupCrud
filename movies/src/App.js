@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col } from 'react-bootstrap'
-import NavBar from './Components/NavBar'
-import Homepage from './Components/Homepage'
+import NavBar from './Components/Homepage/Navbar'
+import Homepage from './Components/Homepage/Homepage'
 import { Route } from 'react-router-dom'
 
 let url = ""
