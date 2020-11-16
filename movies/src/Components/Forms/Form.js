@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './Form.css'
+import Form from 'react-bootstrap/Form'
 
 
-const Form = (props) => {
+const Forms = (props) => {
 
     let classes = ["form-input"]
     let options = ["Title", "Rating", "Genre"]
@@ -103,4 +104,4 @@ const Form = (props) => {
     
 }
 
-export default Form
+export default Forms
