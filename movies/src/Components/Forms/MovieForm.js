@@ -10,15 +10,15 @@ export class MovieForm extends Component {
 
     setType = () =>{
         if (this.props.method === "POST"){
-            return <h4>Please enter the details of the collection you wish to add!</h4>
+            return <h4>Please enter the details of what you wish to add!</h4>
         }
-        if (this.props.method === "PUT"){
-            return (<div> <h4>Please enter the details of the collection to update?</h4>
+        if (this.props.method === "PATCH"){
+            return (<div> <h4>Please enter the details you wish to update!</h4>
             <Form.Control type="input" placeholder="Name (required)" name="add" onChange={this.pleaseWork} />
             </div>)
         }
         if (this.props.method === "DELETE"){
-            return (<div> <h4>Please enter the name of the collection to delete?</h4>
+            return (<div> <h4>Please enter the name of the collection or review you wish to delete.</h4>
             <Form.Control type="input" placeholder="Name (required)" name="delete" onChange={this.pleaseWork} />
             </div>)
         }
@@ -88,11 +88,11 @@ export class MovieForm extends Component {
         if (this.props.method === "POST"){
             film = `https://mernmovies.herokuapp.com/api/collections${this.props.type}`
         }
-        else if (this.props.method === "PUT") {
-            film = `https://mernmovies.herokuapp.com/api/collections${this.props.type}/add/${this.state.name}`
+        else if (this.props.method === "PATCH") {
+            film = `https://mernmovies.herokuapp.com/api/collections/:slug${this.props.type}${this.state.name}`
         }
         else {
-            film = `https://mernmovies.herokuapp.com/api/collections${this.props.type}/delete/${this.state.name}`
+            film = `https://mernmovies.herokuapp.com/api/collections/:slug${this.props.type}${this.state.name}`
         }
         
         console.log(film)
@@ -107,7 +107,7 @@ export class MovieForm extends Component {
             .then(res => {
                 console.log(res)
                 this.props.onSuccess({
-                    newName: res.name
+                    newTitle: res.Title
                     ,success: true
                 })
             })
