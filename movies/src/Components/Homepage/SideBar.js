@@ -13,7 +13,7 @@ function Sidebar(props) {
                 <Nav.Link as={Link} to="/" onClick={() => props}>Home</Nav.Link>
                
                 <Nav.Link as={Link} to="/api/movies" onClick={() => props.selectList}>Titles</Nav.Link>
-                <Nav.Link as={Link} to="./controllers/collections" onClick={() => props.selectList}>Collections</Nav.Link>
+                <Nav.Link as={Link} to="/api/collections" onClick={() => props.selectList}>Collections</Nav.Link>
                 <Nav.Link as={Link} to="/api/reviews" onClick={() => props.selectList}>Reviews</Nav.Link>
 
                 <h4 style={{ textDecoration: "underline" }}>Advanced Options</h4>
