@@ -13,8 +13,8 @@ export class Homepage extends Component {
     }
     render() {
         return (
-            <h1>this is the Homepage</h1>
-           
+            <div style={{ color: "red", paddingTop: 10, textAlign: "center" , border: ".5px dotted black"  }}><h1>MOVIE.INC</h1>
+            </div>
         )
     }
 }

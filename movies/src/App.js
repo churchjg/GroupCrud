@@ -6,6 +6,7 @@ import NavBar from './Components/Homepage/Navbar'
 import Homepage from './Components/Homepage/Homepage'
 import { Route } from 'react-router-dom'
 import Forms from '../src/Components/Forms/Form'
+import Sidebar from './Components/Homepage/SideBar'
 
 let url = ""
 
@@ -77,11 +78,9 @@ class App extends Component {
               exact />
           </Col>
         </Row>
-        <Row>
-          <Col style={{ height: "95%", overflow: "scroll" }}>
-            <Route path="/"
-              render={() => <Forms url={url} />}
-              exact />
+        <Row style={{ height: "85%", marginTop: 15 }} noGutters >
+          <Col xs="2" style={{ marginTop: 5, marginLeft: 15 , border: "5px solid red"}}>
+            <Sidebar selectList={this.selectList} />
           </Col>
         </Row>
       </Container>
