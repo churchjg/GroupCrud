@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import NavBar from './Components/Homepage/Navbar'
 import Homepage from './Components/Homepage/Homepage'
 import { Route } from 'react-router-dom'
+import SubmissionForm from './Components/Forms/SubmissionForm'
 
 // import Sidebar from './Components/Homepage/SideBar'
 
@@ -76,13 +77,23 @@ class App extends Component {
             <Route path="/"
               render={() => <Homepage url={url} />}
               exact />
-          </Col>
-        </Row>
+          
         {/* <Row style={{ height: "85%", marginTop: 15 }} noGutters >
           <Col xs="2" style={{ marginTop: 5, marginLeft: 15 , border: "5px solid red"}}>
             <Sidebar selectList={this.selectList} />
           </Col>
         </Row> */}
+         <Route path="/"
+            render={() => <SubmissionForm  method="POST"/>}
+            />
+            <Route path="/"
+            render={() => <SubmissionForm  method="PUT"/>}
+            />
+            <Route path="/"
+            render={() => <SubmissionForm  method="DELETE" />}
+            />
+          </Col>
+        </Row>
       </Container>
 
     )
