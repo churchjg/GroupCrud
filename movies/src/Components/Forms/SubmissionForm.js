@@ -6,6 +6,7 @@ import Sidebar from '../Homepage/SideBar'
 import { Row, Col } from 'react-bootstrap'
 
 
+
 export class SubmissionForm extends Component {
     constructor(props) {
         super(props)
@@ -20,7 +21,7 @@ export class SubmissionForm extends Component {
             , success: ""
             , type: ""
             , method: this.state.method
-            ,
+            
         }
     }
 
@@ -60,7 +61,7 @@ export class SubmissionForm extends Component {
         })
     }
 
-    resetPage = () => {
+    resetPage = (props) => {
         console.log("fired")
         this.setState(this.baseState)
     }
