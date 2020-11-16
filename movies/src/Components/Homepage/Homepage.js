@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row, Container } from 'react-bootstrap'
 //import Image from 'react-bootstrap/Image'\
 import Sidebar from './SideBar'
+import Image from 'react-bootstrap/Image'
+import Img from './moviePoster.jpg'
 
 let url = 'https://mernmovies.herokuapp.com/api/collections'
 
@@ -31,15 +33,22 @@ export class Homepage extends Component {
 
     render() {
         return (
-            <div style={{ width: "105%", height: "100vh" , color: "red", paddingTop: 10, textAlign: "center", border: ".5px dotted black" }}><h1>MOVIE.INC</h1>
 
-                <Row style={{ height: "60%", marginTop: 15, color: "black", textAlign: "center"}} noGutters >
-                    <Col xs="2" style={{ marginTop: 5, border: "5px solid red", textAlign: "center"}}>
+            <div style={{ width: "%%", height: "100vh", color: "red", paddingTop: 10, textAlign: "center", border: ".5px dotted black" }}><h1>MOVIE.INC</h1>
+                <Row style={{ height: "60%", width: "100%", marginTop: 15, color: "black", textAlign: "center" }} noGutters >
+                    <Col xs="3" style={{ marginTop: 5, border: "5px solid red", textAlign: "center" }}>
                         <Sidebar selectList={this.selectList} />
+                    </Col>
+
+                    <Col style={{ width: "20%", height: "auto", marginTop: "0" }}>
+                        <img src={Img} alt=" pic" />
                     </Col>
                 </Row>
 
-            </div>
+
+            </div >
+
+
         )
     }
 }
