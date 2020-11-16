@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import NavBar from './Components/Homepage/Navbar'
 import Homepage from './Components/Homepage/Homepage'
 import { Route } from 'react-router-dom'
+import Forms from '../src/Components/Forms/Form'
 
 let url = ""
 
@@ -73,6 +74,13 @@ class App extends Component {
           <Col style={{ height: "95%", overflow: "scroll" }}>
             <Route path="/"
               render={() => <Homepage url={url} />}
+              exact />
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ height: "95%", overflow: "scroll" }}>
+            <Route path="/"
+              render={() => <Forms url={url} />}
               exact />
           </Col>
         </Row>
