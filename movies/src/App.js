@@ -19,23 +19,26 @@ class App extends Component {
       dropdownSelection: ""
       , formInput: ""
     }
-    this.path = window.location.pathname
+
   }
 
-  setStateFromUrl = () => {
-    let pathArray = this.path.split('/')
-    pathArray = pathArray.filter(val => (val !== ""))
-    if (pathArray[1] === "movie") {
-      this.fetchMovie()
-    } else {
-      console.log("no path")
-    }
-  }
+  fetchMovies = () => {
+    fetch(`${url}/`)
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+            this.setState({
+                ready: true
+                , movies: res
+            })
+        })
 
+}
+componentDidMount = () => {
+    this.fetchMovies()
+}
 
-  componentDidMount = () => {
-    this.setStateFromUrl()
-  }
+  
 
   selectList = listName => {
     this.setState({
@@ -95,13 +98,13 @@ class App extends Component {
             render={() => <LogoutForm  method="POST"/>}
             /> */}
 
-         <Route path="/"
+         <Route path="/api/collections"
             render={() => <SubmissionForm  method="POST"/>}
             />
-            <Route path="/"
-            render={() => <SubmissionForm  method="PUT"/>}
+            <Route path="/api/collections/:slug"
+            render={() => <SubmissionForm  method="PATCH"/>}
             />
-            <Route path="/"
+            <Route path="/api/collections/:slug"
             render={() => <SubmissionForm  method="DELETE" />}
             />
           </Col>
