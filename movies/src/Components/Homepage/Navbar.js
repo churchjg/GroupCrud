@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import bgImage from '../../Images/moviereel.jpg'
 import SearchForm from '../Forms/SearchForm'
 // import Form from '../Forms/Form'
+import LoginForm from '../Forms/LoginForm'
+// import LogoutForm from '../Forms/LogoutForm'
+// import SignUpForm from '../Forms/SignUpForm'
 
 
 
@@ -15,7 +18,10 @@ function NavBar(props) {
             <Navbar.Brand as={Link} to="/" style={{ color: "red" }}></Navbar.Brand>
             <Navbar.Text style={{ color: "red", paddingTop: 50, textAlign: "bottom" , opacity: "0" }}><h2>MOVIE.INC</h2></Navbar.Text>
 
-            <SearchForm sendInput={props.sendInput} />
+            <SearchForm style={{alignItems: "left"}} sendInput={props.sendInput} />
+            <LoginForm style={{alignItems: "center"}} sendInput={props.sendInput} />
+            {/* <LogoutForm sendInput={props.sendInput} />
+            <SignUpForm sendInput={props.sendInput} /> */}
 
         </Navbar>
 
