@@ -5,10 +5,10 @@ import { Container, Row, Col } from 'react-bootstrap'
 import NavBar from './Components/Homepage/Navbar'
 import Homepage from './Components/Homepage/Homepage'
 import { Route } from 'react-router-dom'
-import Forms from '../src/Components/Forms/Form'
-import Sidebar from './Components/Homepage/SideBar'
 
-let url = ""
+// import Sidebar from './Components/Homepage/SideBar'
+
+let url = "https://mernmovies.herokuapp.com/api/collections"
 
 class App extends Component {
   constructor() {
@@ -78,11 +78,11 @@ class App extends Component {
               exact />
           </Col>
         </Row>
-        <Row style={{ height: "85%", marginTop: 15 }} noGutters >
+        {/* <Row style={{ height: "85%", marginTop: 15 }} noGutters >
           <Col xs="2" style={{ marginTop: 5, marginLeft: 15 , border: "5px solid red"}}>
             <Sidebar selectList={this.selectList} />
           </Col>
-        </Row>
+        </Row> */}
       </Container>
 
     )
