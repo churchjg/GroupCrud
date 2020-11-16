@@ -10,15 +10,15 @@ export class MovieForm extends Component {
 
     setType = () =>{
         if (this.props.method === "POST"){
-            return <h4>Please enter the details of the movie you wish to add!</h4>
+            return <h4>Please enter the details of the collection you wish to add!</h4>
         }
         if (this.props.method === "PUT"){
-            return (<div> <h4>Please enter the details of the movie to update?</h4>
+            return (<div> <h4>Please enter the details of the collection to update?</h4>
             <Form.Control type="input" placeholder="Name (required)" name="add" onChange={this.pleaseWork} />
             </div>)
         }
         if (this.props.method === "DELETE"){
-            return (<div> <h4>Please enter the name of the movie to delete?</h4>
+            return (<div> <h4>Please enter the name of the collection to delete?</h4>
             <Form.Control type="input" placeholder="Name (required)" name="delete" onChange={this.pleaseWork} />
             </div>)
         }
@@ -28,18 +28,21 @@ export class MovieForm extends Component {
         if (this.props.method !== "DELETE"){
             return ( <div >
                 <Form.Control size="sm" type="input" placeholder="Title" name="title" onChange={this.inputChange} />
-                <h5>Has this movie been released?</h5>
+                <h5>Is this a Collection?</h5>
                 <Form.Check inline size="sm" type="radio" name="released" label="Yes"  onClick={() => this.setCheckbox("released", true)} />
                 <Form.Check inline size="sm" type="radio" name="released" label="No"  onClick={() => this.setCheckbox("released", false)} />
-                <h5>Is this movie intended for all audiences?</h5>
+                <Form.Control size="sm" type="input" placeholder="Titles" name="title" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Major Genre" name="genre" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Your Rating" name="rating" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Creative Type (Fantasy, Historial Fiction, etc.) " name="creative" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Release Date" name="date" onChange={this.inputChange} />
+                <Form.Control size="sm" type="input" placeholder="Movie Poster" name="image" onChange={this.inputChange} />
+                <h5>Is this a rating?</h5>
                 <Form.Check inline size="sm" type="radio" name="audience" label="Yes"  onClick={() => this.setCheckbox("audience", true)} />
                 <Form.Check inline size="sm" type="radio" name="audience" label="No"  onClick={() => this.setCheckbox("audience", false)} />
                 <Form.Control size="sm" type="input" placeholder="Title" name="title" onChange={this.inputChange} />
-                <Form.Control size="sm" type="input" placeholder="Major Genre" name="genre" onChange={this.inputChange} />
                 <Form.Control size="sm" type="input" placeholder="Your Rating" name="rating" onChange={this.inputChange} />
-                <Form.Control size="sm" type="input" placeholder="Creative Type (Fantasy, Historial Fiction, etc.) " name="cretive" onChange={this.inputChange} />
-                <Form.Control size="sm" type="input" placeholder="Release Date" name="date" onChange={this.inputChange} />
-                <Form.Control size="sm" type="input" placeholder="Movie Poster" name="image" onChange={this.inputChange} />
+               
                 
             </div>)
         }

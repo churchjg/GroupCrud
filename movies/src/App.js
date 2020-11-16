@@ -6,6 +6,7 @@ import NavBar from './Components/Homepage/Navbar'
 import Homepage from './Components/Homepage/Homepage'
 import { Route } from 'react-router-dom'
 import SubmissionForm from './Components/Forms/SubmissionForm'
+import LoginForm from './Components/Forms/LoginForm'
 
 // import Sidebar from './Components/Homepage/SideBar'
 
@@ -83,6 +84,17 @@ class App extends Component {
             <Sidebar selectList={this.selectList} />
           </Col>
         </Row> */}
+
+        {/* I need a submission form to CRUD collections and reviews
+        Another form for login/logout */}
+
+        <Route path="./controllers/auth"
+            render={() => <LoginForm  method="POST"/>}
+            />
+            {/* <Route path="./controllers/auth"
+            render={() => <LogoutForm  method="POST"/>}
+            /> */}
+
          <Route path="/"
             render={() => <SubmissionForm  method="POST"/>}
             />

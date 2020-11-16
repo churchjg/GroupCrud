@@ -38,15 +38,16 @@ export class SearchForm extends Component {
 
     render() {
         return (
+            
             <Form inline onSubmit={this.submitForm}>
-                <Form.Control style={{ margin: 5 , border: "1.5px solid red" }} size="sm" as="select" title="Narrow Your Search" id="basic-nav-dropdown" onChange={this.dropdownChange}>
+                {/* <Form.Control style={{ margin: 5 , border: "1.5px solid red" }} size="sm" as="select" title="Narrow Your Search" id="basic-nav-dropdown" onChange={this.dropdownChange}>
                     <option>Narrow Your Search</option>
                     <option value="title">Title</option>
                     <option value="rating">Rating</option>
                     <option value="genre">Genre</option>
                     
-                </Form.Control>
-                <Form.Control style={{margin: 5 , border: "1px solid black"}} size="sm" type="input" onChange={this.inputChange} />
+                </Form.Control> */}
+                <Form.Control style={{margin: 5 , border: "1px solid black" , alignItems: "left"}} placeholder="Search by Title" size="sm" type="input" onChange={this.inputChange} />
                 <Button style={{margin: 5, backgroundColor: "#F5F5F5", color: "#333333", border: "1.5px solid red"}} size="sm" type="submit" >Search</Button>
             </Form>
         )

@@ -10,16 +10,19 @@ function Sidebar(props) {
                 <h4 style={{ textDecoration: "underline" }}>Browse Collections</h4>
 
 
-                <Nav.Link as={Link} to="/" onClick={() => props.setMealId}>Home</Nav.Link>
-                <Nav.Link as={Link} to="/movie/random" onClick={() => props.setMealId}>Pick a Movie For Me!</Nav.Link>
-                <Nav.Link as={Link} to="/titles/" onClick={() => props.selectList}>Titles</Nav.Link>
-                <Nav.Link as={Link} to="/collections/" onClick={() => props.selectList}>Genres</Nav.Link>
-                <Nav.Link as={Link} to="/review/" onClick={() => props.selectList}>By Rating</Nav.Link>
+                <Nav.Link as={Link} to="/" onClick={() => props}>Home</Nav.Link>
+               
+                <Nav.Link as={Link} to="/api/movies" onClick={() => props.selectList}>Titles</Nav.Link>
+                <Nav.Link as={Link} to="/api/collections" onClick={() => props.selectList}>Collections</Nav.Link>
+                <Nav.Link as={Link} to="/api/reviews" onClick={() => props.selectList}>Reviews</Nav.Link>
 
                 <h4 style={{ textDecoration: "underline" }}>Advanced Options</h4>
-                <Nav.Link as={Link} to="/" >Add a New Movie</Nav.Link>
-                <Nav.Link as={Link} to="/" >Update a Movie</Nav.Link>
-                <Nav.Link as={Link} to="/" >Delete a Movie</Nav.Link>
+                <Nav.Link as={Link} to="/" >Add a New Collection </Nav.Link>
+                <Nav.Link as={Link} to="/" >Update a Collection </Nav.Link>
+                <Nav.Link as={Link} to="/" >Delete a Collection </Nav.Link>
+                <Nav.Link as={Link} to="/" >Add a New Review</Nav.Link>
+                <Nav.Link as={Link} to="/" >Update a Review</Nav.Link>
+                <Nav.Link as={Link} to="/" >Delete a Review</Nav.Link>
                 </Nav.Item>
         </Nav>
     )
