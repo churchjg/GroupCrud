@@ -34,8 +34,8 @@ export class Homepage extends Component {
     render() {
         return (
 
-            <div style={{ width: "%%", height: "100vh", color: "red", paddingTop: 10, textAlign: "center", border: ".5px dotted black" }}><h1>MOVIE.INC</h1>
-                <Row style={{ height: "60%", width: "100%", marginTop: 15, color: "black", textAlign: "center" }} noGutters >
+            <div style={{ width: "120%", height: "100vh", color: "red", paddingTop: 10, marginRight: "500px" , backgroundColor: "#D3D3D3" ,textAlign: "center", border: ".5px dotted black" }}><h1>MOVIE.INC</h1>
+                <Row style={{ height: "60%", width: "85%", marginTop: 15, color: "black", textAlign: "center" }} noGutters >
                     <Col xs="3" style={{ marginTop: 5, border: "5px solid red", textAlign: "center" }}>
                         <Sidebar selectList={this.selectList} />
                     </Col>

@@ -61,9 +61,9 @@ export class LoginForm extends Component {
         return (
             <>
                 <Form inline onSubmit={this.submitForm}>
-                    <Button style={{ margin: 5, backgroundColor: "#F5F5F5", color: "red", border: "2px solid red" }} size="md" type="submit" onClick={this.onOpenModal} >Sign Up</Button>
-                    <Button classname="login" style={{ margin: 5, backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid red" }} size="md" type="submit" onClick={this.onOpenModalLogin} >Login</Button>
-                    <Button style={{ margin: 5, backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid red" }} size="md" type="submit" >Logout</Button>
+                    <Button style={{ margin: 5, fontWeight: "bold" , backgroundColor: "#F5F5F5", color: "red", border: "2px solid red" }} size="md" type="submit" onClick={this.onOpenModal} >Sign Up</Button>
+                    <Button classname="login" style={{ margin: 5, fontWeight: "bold" , backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid red" }} size="md" type="submit" onClick={this.onOpenModalLogin} >Login</Button>
+                    <Button style={{ margin: 5, fontWeight: "bold" , backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid red", marginRight: "125px" }} size="md" type="submit" >Logout</Button>
                 </Form>
 
                 <Modal open={sign} onClose={this.onCloseModal}>

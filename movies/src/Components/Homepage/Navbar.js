@@ -19,7 +19,7 @@ function NavBar(props) {
             <Navbar.Text style={{ color: "red", paddingTop: 50, textAlign: "bottom" , opacity: "0" }}><h2>MOVIE.INC</h2></Navbar.Text>
 
             
-            <LoginForm style={{alignItems: "center"}} sendInput={props.sendInput} />
+            <LoginForm style={{alignItems: "center", marginRight: "50px"}} sendInput={props.sendInput} />
             {/* <LogoutForm sendInput={props.sendInput} />
             <SignUpForm sendInput={props.sendInput} /> */}
 
