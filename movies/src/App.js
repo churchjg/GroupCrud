@@ -7,6 +7,7 @@ import Homepage from './Components/Homepage/Homepage'
 import { Route } from 'react-router-dom'
 import SubmissionForm from './Components/Forms/SubmissionForm'
 import LoginForm from './Components/Forms/LoginForm'
+import Title from './Components/Homepage/Title'
 
 // import Sidebar from './Components/Homepage/SideBar'
 
@@ -24,21 +25,21 @@ class App extends Component {
 
   fetchMovies = () => {
     fetch(`${url}/`)
-        .then(res => res.json())
-        .then(res => {
-            console.log(res)
-            this.setState({
-                ready: true
-                , movies: res
-            })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        this.setState({
+          ready: true
+          , movies: res
         })
+      })
 
-}
-componentDidMount = () => {
+  }
+  componentDidMount = () => {
     this.fetchMovies()
-}
+  }
 
-  
+
 
   selectList = listName => {
     this.setState({
@@ -81,31 +82,45 @@ componentDidMount = () => {
             <Route path="/"
               render={() => <Homepage url={url} />}
               exact />
-          
-        {/* <Row style={{ height: "85%", marginTop: 15 }} noGutters >
+
+            {/* <Row style={{ height: "85%", marginTop: 15 }} noGutters >
           <Col xs="2" style={{ marginTop: 5, marginLeft: 15 , border: "5px solid red"}}>
             <Sidebar selectList={this.selectList} />
           </Col>
         </Row> */}
 
-        {/* I need a submission form to CRUD collections and reviews
+            {/* I need a submission form to CRUD collections and reviews
         Another form for login/logout */}
 
-        <Route path="./controllers/auth"
-            render={() => <LoginForm  method="POST"/>}
+            <Route path="./controllers/auth"
+              render={() => <LoginForm method="POST" />}
             />
             {/* <Route path="./controllers/auth"
             render={() => <LogoutForm  method="POST"/>}
             /> */}
 
-         <Route path="/api/collections"
-            render={() => <SubmissionForm  method="POST"/>}
+            <Route path={`/api/movies${this.state.browseSelection}`}
+              render={() => <Title listName={this.state.browseSelection} url={url} setNameId={this.state.movies} />}
+              exact
+            />
+
+            <Route path="/api/collections"
+              render={() => <SubmissionForm method="POST" />}
             />
             <Route path="/api/collections/:slug"
-            render={() => <SubmissionForm  method="PATCH"/>}
+              render={() => <SubmissionForm method="PATCH" />}
             />
             <Route path="/api/collections/:slug"
-            render={() => <SubmissionForm  method="DELETE" />}
+              render={() => <SubmissionForm method="DELETE" />}
+            />
+            <Route path="/api/reviews"
+              render={() => <SubmissionForm method="POST" />}
+            />
+            <Route path="/api/reviews/:id"
+              render={() => <SubmissionForm method="PATCH" />}
+            />
+            <Route path="/api/reviews/:id"
+              render={() => <SubmissionForm method="DELETE" />}
             />
           </Col>
         </Row>
