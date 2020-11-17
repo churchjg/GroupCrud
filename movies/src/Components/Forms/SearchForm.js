@@ -47,8 +47,8 @@ export class SearchForm extends Component {
                     <option value="genre">Genre</option>
                     
                 </Form.Control> */}
-                <Form.Control style={{margin: 5 , border: "1px solid black" , alignItems: "left"}} placeholder="Search by Title" size="sm" type="input" onChange={this.inputChange} />
-                <Button style={{margin: 5, backgroundColor: "#F5F5F5", color: "#333333", border: "1.5px solid red"}} size="sm" type="submit" >Search</Button>
+                <Button style={{margin: 5, backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid red"}} size="md" type="submit" >Search</Button>
+                <Form.Control style={{margin: 5 , border: "1px solid black" , alignItems: "left"}} placeholder="Search by Title" size="md" type="input" onChange={this.inputChange} />
             </Form>
         )
     }
