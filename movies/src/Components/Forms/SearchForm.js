@@ -8,7 +8,6 @@ export class SearchForm extends Component {
         super(props)
         this.state = {
             input: ""
-            , dropdown: ""
         }
     }
 
@@ -19,21 +18,14 @@ export class SearchForm extends Component {
         })
     }
 
-    dropdownChange = e => {
-        this.setState({
-            dropdown: e.target.value
-        })
-    }
-
-   
 
     submitForm = (e) => {
         e.preventDefault()
-        if (this.state.dropdown !== "" && this.state.input !== "") {
-            this.props.sendInput(this.state)
-            this.props.movies.push(`/api/movies/${this.state.dropdown}${this.state.input}`)
+        if (this.state.input !== "") {
+            this.props.inputChange(this.state)
+            this.props.movies.push(`/api/movies${this.state.input}`)
         }
-        else { alert("Please select an area from the dropdown and enter the name of the section you would like to search.") }
+        else { alert("Sorry, I could not find that title.") }
     }
 
     render() {
