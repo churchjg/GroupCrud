@@ -61,7 +61,7 @@ export class SubmissionForm extends Component {
         })
     }
 
-    resetPage = (props) => {
+    resetPage = () => {
         console.log("fired")
         this.setState(this.baseState)
     }
@@ -89,7 +89,7 @@ export class SubmissionForm extends Component {
     }
 
     render() {
-        if (this.state.success === true) {
+        if (this.state.success !== true) {
             return (<div style={{ width: "60%", marginLeft: 20 }}>
                 {this.formType()}
                 <Form style={{ marginBottom: 10 }}>
