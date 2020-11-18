@@ -1,18 +1,25 @@
 import React, { Component } from 'react'
 import Sidebar from './SideBar'
 import { Col, Row, Container } from 'react-bootstrap'
+import axios from 'axios';
 
 
-let url = "https://mernmovies.herokuapp.com/api/collections"
+let url = "https://mernmovies.herokuapp.com"
 
 
 export class Title extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            listName: this.props.listName
-            , movies: []
+            listName: this.props.listName,
+             movies: []
         }
+    }
+
+    async getMovies() {
+        console.log("search")
+const data = await axios(`${url}/api/movies`)
+console.log(data);
     }
 
 
@@ -32,7 +39,7 @@ export class Title extends Component {
 
 
     componentDidMount = () => {
-        this.fetchMovies()
+        this.getMovies()
     }
 
 
