@@ -50,29 +50,29 @@ export class Title extends Component {
 
 
     render() {
-        console.log("we are in title",this.props);
+        console.log("we are in title", this.props);
         return (
-            <Container>
+            <Container style={{ width: "100%" }}>
 
                 <div style={{ width: "120%", height: "100vh", color: "red", paddingTop: 10, backgroundColor: "#D3D3D3", textAlign: "center", border: ".5px dotted black" }}><h1>MOVIE.INC</h1>
                     <Row style={{ height: "60%", width: "85%", marginTop: 15, color: "black", textAlign: "center" }} noGutters >
                         <Col xs="3" style={{ marginTop: 5, border: "5px solid red", textAlign: "center" }}>
                             <Sidebar selectList={this.selectList} />
                         </Col>
-                        {
-                    this.props.movies.map((movie) =>
+                    
                     <Col>
-                        <div style={{ textAlign: "center" }}>
-                            <ul style={{ listStyle: "none", fontSize: "20px", paddingTop: 20, paddingBottom: 20 }}>
-                                <h2>Some Great Movies:</h2>
-                              {movie.Title}
+                        <div style={{ paddingLeft: 20, textAlign: "center" }}>
+                            <ul style={{ listStyle: "none", fontSize: "20px", paddingTop: 20, textAlign: "center" }}>
+                                <h2>Some Great Movie Options</h2>
+                                {this.props.movies.map((movie =>
+                                    <li>{movie.Title}</li>))}
                             </ul>
                         </div>
                     </Col>
-                    )
-                }
                     </Row>
                 </div>
+             
+
             </Container>
         )
     }
