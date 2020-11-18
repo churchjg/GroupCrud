@@ -23,7 +23,7 @@ class App extends Component {
       dropdownSelection: ""
       , formInput: ""
       , titles: []
-      , searchTerm: ''
+     
     }
 
   }
@@ -111,8 +111,8 @@ class App extends Component {
               render={() => <Title listName={this.state.browseSelection} url={url} setNameId={this.state.movies} />}
               exact
             />
-               <Route path={`/api/movies${this.state.searchTerm}${this.editSearchTerm}`}
-              render={() => <SearchForm value={this.state.searchTerm} onChange={this.editSearchTerm}/>}
+               <Route path="/api/movies"
+              render={() => <SearchForm onChange={this.handleInputChange}/>}
             />
 
             <Route path="/api/collections"

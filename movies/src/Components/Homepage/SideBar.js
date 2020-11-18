@@ -7,7 +7,7 @@ import SearchForm from '../Forms/SearchForm'
 function Sidebar(props) {
     return (
         <Nav style={{ padding: "50px 40px", backgroundColor: "#D3D3D3", }}>
-            <SearchForm style={{ alignItems: "left" }} sendInput={props.sendInput} />
+            <SearchForm style={{ alignItems: "center", textAlign: "center" }} sendInput={props.handleInputChange} />
             <Nav.Item>
                 <h2 style={{ textDecoration: "underline", marginTop: "50px" }}>Browse Collections</h2>
                 <h5 style={{ textDecoration: "none" }}>
