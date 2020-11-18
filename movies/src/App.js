@@ -124,33 +124,16 @@ class App extends Component {
             <Route path="/api/collections/:slug"
               render={() => <SubmissionForm method="DELETE" />}
             />
-            <Col>
-              <Route path={`/api/reviews${this.state.type}${this.state.method}${this.onSuccess}`}
-                render={() => {
-                  if (this.props.method === "POST") {
-                    return <SubmissionReviewForm method={this.props.method}/>
-                  }
-                } 
-              } />
-            </Col>
-            <Col>
-            <Route path={`/api/reviews/:id${this.state.type}${this.state.method}${this.onSuccess}`}
-                render={() => {
-                  if (this.props.method === "PATCH") {
-                    return <SubmissionReviewForm method={this.props.method}/>
-                  }
-                } 
-              } />
-            </Col>
-            <Col>
-            <Route path={`/api/reviews/:id${this.state.type}${this.state.method}${this.onSuccess}`}
-                render={() => {
-                  if (this.props.method === "PATCH") {
-                    return <SubmissionReviewForm method={this.props.method}/>
-                  }
-                } 
-              } />
-            </Col>
+             <Route path="/api/reviews/"
+              render={() => <SubmissionReviewForm method="POST" />}
+            />
+             <Route path="/api/reviews/:id"
+              render={() => <SubmissionReviewForm method="PATCH" />}
+            />
+             <Route path="/api/reviews/:id"
+              render={() => <SubmissionReviewForm method="DELETE" />}
+            />
+            
           </Col>
         </Row>
       </Container>
