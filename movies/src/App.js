@@ -8,7 +8,7 @@ import { Route } from 'react-router-dom'
 import SubmissionForm from './Components/Forms/SubmissionForm'
 import SubmissionReviewForm from './Components/Forms/SubmissionReviewForm'
 import LoginForm from './Components/Forms/LoginForm'
-import Title from './Components/Homepage/Title'
+import Titles from './Components/Homepage/Titles'
 import SearchForm from '../src/Components/Forms/SearchForm'
 import axios from 'axios';
 
@@ -115,30 +115,30 @@ console.log(data);
             render={() => <LogoutForm  method="POST"/>}
             /> */}
 
-            <Route path={`/movies${this.state.browseSelection}`}
-              render={() => <Title listName={this.state.browseSelection} url={url} setNameId={this.state.movies} />}
+            <Route path="/movies/api"
+              render={() => <Titles url={url} />}
               exact
             />
-               <Route path="/movies"
-              render={() => <SearchForm onChange={this.handleInputChange}/>}
+               <Route path="/api/movies"
+              render={() => <SearchForm onChange={this.handleChange}/>}
             />
 
-            <Route path="/api/collections"
+            <Route path="/collections"
               render={() => <SubmissionForm method="POST" />}
             />
-            <Route path="/api/collections/:slug"
+            <Route path="/collections/:slug"
               render={() => <SubmissionForm method="PATCH" />}
             />
-            <Route path="/api/collections/:slug"
+            <Route path="/collections/:slug"
               render={() => <SubmissionForm method="DELETE" />}
             />
-             <Route path="/api/reviews/"
+             <Route path="/reviews/"
               render={() => <SubmissionReviewForm method="POST" />}
             />
-             <Route path="/api/reviews/:id"
+             <Route path="/reviews/:id"
               render={() => <SubmissionReviewForm method="PATCH" />}
             />
-             <Route path="/api/reviews/:id"
+             <Route path="/reviews/:id"
               render={() => <SubmissionReviewForm method="DELETE" />}
             />
 

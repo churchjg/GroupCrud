@@ -21,7 +21,7 @@ export class SearchForm extends React.Component {
     }
 
     handleSubmit(e) {
-        alert('A title was submitted: ' + this.state.value);
+        console.log('A title was submitted: ' + this.state.value);
         e.preventDefault();
     }
 
@@ -31,7 +31,7 @@ export class SearchForm extends React.Component {
             <Form onSubmit={this.handleSubmit} style={{ alignItems: "center", textAlign: "center" }}>
                 <Row style={{ alignItems: "center", textAlign: "center" }}>
                     <Form.Control style={{ margin: "5px", border: "1px solid black", alignItems: "center" }} input type="text" value={this.state.value} onChange={this.handleChange} placeholder='Search by Title' />
-                    <Button style={{ margin: "5px", marginLeft: "175px", textAlign: "center", backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid red" }} size="md" type="submit" >Search</Button>
+                    <Button style={{ margin: "5px", marginLeft: "150px", textAlign: "center", backgroundColor: "#F5F5F5", color: "#333333", border: "2.5px solid red" }} size="md" type="submit" >Search</Button>
                 </Row>
             </Form>
         )
