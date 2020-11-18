@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import Suggestions from './Suggestions'
+
 import { Col, Row, Container } from 'react-bootstrap'
 
 
@@ -12,7 +12,7 @@ export class SearchForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            titles: []
+            titles: {}
             , query: ''
         }
     }
@@ -24,7 +24,7 @@ export class SearchForm extends Component {
                 console.log(res)
                 this.setState({
                     ready: true
-                    , titles: res
+                    , title: res
                 })
             })
 
@@ -49,8 +49,8 @@ export class SearchForm extends Component {
             <Form style={{ alignItems: "center", textAlign: "center"}}>
                 <Row style={{ alignItems: "center", textAlign: "center" }}>
                     <Form.Control style={{ margin: "5px", border: "1px solid black", alignItems: "center" }} ref={input => this.search = input} onChange={this.handleInputChange} placeholder='Search by Title' />
-                    <Button style={{ margin: "5px", marginLeft: "125px", textAlign: "center", backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid red" }} size="md" type="submit" >Search</Button>
-                    <Suggestions titles={this.state.titles} />
+                    <Button style={{ margin: "5px", marginLeft: "175px", textAlign: "center", backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid red" }} size="md" type="submit" >Search</Button>
+                    
                 </Row>
             </Form>
         )

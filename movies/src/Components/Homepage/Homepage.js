@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
-//import Image from 'react-bootstrap/Image'\
+
 import Sidebar from './SideBar'
-import Image from 'react-bootstrap/Image'
+
 import Img from './moviePoster.jpg'
 
 let url = 'https://mernmovies.herokuapp.com/api/collections'
