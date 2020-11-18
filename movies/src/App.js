@@ -6,8 +6,11 @@ import NavBar from './Components/Homepage/Navbar'
 import Homepage from './Components/Homepage/Homepage'
 import { Route } from 'react-router-dom'
 import SubmissionForm from './Components/Forms/SubmissionForm'
+import SubmissionReviewForm from './Components/Forms/SubmissionReviewForm'
 import LoginForm from './Components/Forms/LoginForm'
 import Title from './Components/Homepage/Title'
+import SearchForm from '../src/Components/Forms/SearchForm'
+
 
 // import Sidebar from './Components/Homepage/SideBar'
 
@@ -19,9 +22,12 @@ class App extends Component {
     this.state = {
       dropdownSelection: ""
       , formInput: ""
+      , titles: []
+      , searchTerm: ''
     }
 
   }
+
 
   fetchMovies = () => {
     fetch(`${url}/`)
@@ -39,6 +45,7 @@ class App extends Component {
     this.fetchMovies()
   }
 
+  
 
 
   selectList = listName => {
@@ -72,6 +79,7 @@ class App extends Component {
   render(props) {
     return (
       <Container fluid style={{ padding: 0 }} >
+      
         <Row style={{ height: "25%" }} >
           <Col >
             <NavBar dropdownSelection={this.setDropdown} sendInput={this.setFormSelection} />
@@ -103,6 +111,9 @@ class App extends Component {
               render={() => <Title listName={this.state.browseSelection} url={url} setNameId={this.state.movies} />}
               exact
             />
+               <Route path={`/api/movies${this.state.searchTerm}${this.editSearchTerm}`}
+              render={() => <SearchForm value={this.state.searchTerm} onChange={this.editSearchTerm}/>}
+            />
 
             <Route path="/api/collections"
               render={() => <SubmissionForm method="POST" />}
@@ -113,15 +124,33 @@ class App extends Component {
             <Route path="/api/collections/:slug"
               render={() => <SubmissionForm method="DELETE" />}
             />
-            <Route path="/api/reviews"
-              render={() => <SubmissionForm method="POST" />}
-            />
-            <Route path="/api/reviews/:id"
-              render={() => <SubmissionForm method="PATCH" />}
-            />
-            <Route path="/api/reviews/:id"
-              render={() => <SubmissionForm method="DELETE" />}
-            />
+            <Col>
+              <Route path={`/api/reviews${this.state.type}${this.state.method}${this.onSuccess}`}
+                render={() => {
+                  if (this.props.method === "POST") {
+                    return <SubmissionReviewForm method={this.props.method}/>
+                  }
+                } 
+              } />
+            </Col>
+            <Col>
+            <Route path={`/api/reviews/:id${this.state.type}${this.state.method}${this.onSuccess}`}
+                render={() => {
+                  if (this.props.method === "PATCH") {
+                    return <SubmissionReviewForm method={this.props.method}/>
+                  }
+                } 
+              } />
+            </Col>
+            <Col>
+            <Route path={`/api/reviews/:id${this.state.type}${this.state.method}${this.onSuccess}`}
+                render={() => {
+                  if (this.props.method === "PATCH") {
+                    return <SubmissionReviewForm method={this.props.method}/>
+                  }
+                } 
+              } />
+            </Col>
           </Col>
         </Row>
       </Container>
