@@ -48,8 +48,8 @@ export class SearchForm extends Component {
 
             <Form style={{ alignItems: "center", textAlign: "center"}}>
                 <Row style={{ alignItems: "center", textAlign: "center" }}>
-                    <Form.Control style={{ border: "1px solid black", alignItems: "center" }} ref={input => this.search = input} onChange={this.handleInputChange} placeholder='Search by Title' />
-                    <Button style={{ marginTop: "5px", marginLeft: "100px", textAlign: "center", backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid red" }} size="md" type="submit" >Search</Button>
+                    <Form.Control style={{ margin: "5px", border: "1px solid black", alignItems: "center" }} ref={input => this.search = input} onChange={this.handleInputChange} placeholder='Search by Title' />
+                    <Button style={{ margin: "5px", marginLeft: "125px", textAlign: "center", backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid red" }} size="md" type="submit" >Search</Button>
                     <Suggestions titles={this.state.titles} />
                 </Row>
             </Form>
