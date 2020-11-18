@@ -8,7 +8,7 @@ import { Route } from 'react-router-dom'
 import SubmissionForm from './Components/Forms/SubmissionForm'
 import SubmissionReviewForm from './Components/Forms/SubmissionReviewForm'
 import LoginForm from './Components/Forms/LoginForm'
-import Titles from './Components/Homepage/Titles'
+import Title from './Components/Homepage/Title'
 import SearchForm from '../src/Components/Forms/SearchForm'
 import axios from 'axios';
 
@@ -19,72 +19,47 @@ import axios from 'axios';
 
 let url = "https://mernmovies.herokuapp.com"
 
+
+
 class App extends Component {
   constructor() {
     super()
     this.state = {
       dropdownSelection: ""
       , formInput: ""
-      , titles: []
-
+      , movies: []
     }
-
   }
 
-async fetchMovies() {
-  console.log("search")
-const data = await axios.get(`${url}/api/movies`)
-console.log(data);
-    }
-
-  fetchMoviesTwo = () => {
-    fetch(`${url}/`)
-      .then(res => res.json())
-      .then(res => {
-        console.log(res)
-        this.setState({
-          ready: true
-          , movies: res
-        })
-      })
-
-  }
   componentDidMount = () => {
     this.fetchMovies()
   }
 
-
-
-
-  selectList = listName => {
+  async fetchMovies() {
+    console.log("search")
+    const data = await axios.get(`${url}/api/movies`)
+    console.log("fetching movies",data.data.data);
     this.setState({
-      browseSelection: listName
-    })
-  }
+    movies: data.data.data
+  })
+}
+
+  // fetchMoviesTwo = () => {
+  //   fetch(`${url}/`)
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       console.log(res)
+  //       this.setState({
+  //         ready: true
+  //         , movies: res
+  //       })
+  //     })
+
+  //}
 
 
-  setDropdown = selection => {
-    this.setState({
-      dropdownSelection: selection
-    })
-  }
 
-  setFormSelection = (input, optional) => {
-    if (input.input !== undefined) {
-      this.setState({
-        dropdownSelection: input.dropdown
-        , formInput: input.input
-      })
-    }
-    else {
-      this.setState({
-        formInput: input
-        , dropdownSelection: optional
-      })
-    }
-  }
-
-  render(props) {
+  render() {
     return (
       <Container fluid style={{ padding: 0 }} >
 
@@ -115,13 +90,13 @@ console.log(data);
             render={() => <LogoutForm  method="POST"/>}
             /> */}
 
-            <Route path="/movies/api"
-              render={() => <Titles url={url} />}
+            <Route path="/movies"
+              render={() => <Title movies={this.state.movies} />}
               exact
             />
-               <Route path="/api/movies"
+               {/* <Route path="/api/movies"
               render={() => <SearchForm onChange={this.handleChange}/>}
-            />
+            /> */}
 
             <Route path="/collections"
               render={() => <SubmissionForm method="POST" />}
