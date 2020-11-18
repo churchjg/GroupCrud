@@ -10,11 +10,14 @@ import SubmissionReviewForm from './Components/Forms/SubmissionReviewForm'
 import LoginForm from './Components/Forms/LoginForm'
 import Title from './Components/Homepage/Title'
 import SearchForm from '../src/Components/Forms/SearchForm'
+import axios from 'axios';
 
 
 // import Sidebar from './Components/Homepage/SideBar'
 
-let url = "https://mernmovies.herokuapp.com/api/collections"
+//save that array of movies into "title save"
+
+let url = "https://mernmovies.herokuapp.com"
 
 class App extends Component {
   constructor() {
@@ -23,13 +26,18 @@ class App extends Component {
       dropdownSelection: ""
       , formInput: ""
       , titles: []
-     
+
     }
 
   }
 
+async fetchMovies() {
+  console.log("search")
+const data = await axios.get(`${url}/api/movies`)
+console.log(data);
+    }
 
-  fetchMovies = () => {
+  fetchMoviesTwo = () => {
     fetch(`${url}/`)
       .then(res => res.json())
       .then(res => {
@@ -45,7 +53,7 @@ class App extends Component {
     this.fetchMovies()
   }
 
-  
+
 
 
   selectList = listName => {
@@ -79,7 +87,7 @@ class App extends Component {
   render(props) {
     return (
       <Container fluid style={{ padding: 0 }} >
-      
+
         <Row style={{ height: "25%" }} >
           <Col >
             <NavBar dropdownSelection={this.setDropdown} sendInput={this.setFormSelection} />
@@ -107,11 +115,11 @@ class App extends Component {
             render={() => <LogoutForm  method="POST"/>}
             /> */}
 
-            <Route path={`/api/movies${this.state.browseSelection}`}
+            <Route path={`/movies${this.state.browseSelection}`}
               render={() => <Title listName={this.state.browseSelection} url={url} setNameId={this.state.movies} />}
               exact
             />
-               <Route path="/api/movies"
+               <Route path="/movies"
               render={() => <SearchForm onChange={this.handleInputChange}/>}
             />
 
@@ -133,7 +141,7 @@ class App extends Component {
              <Route path="/api/reviews/:id"
               render={() => <SubmissionReviewForm method="DELETE" />}
             />
-            
+
           </Col>
         </Row>
       </Container>
