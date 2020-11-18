@@ -32,14 +32,14 @@ export class ReviewForm extends Component {
     setReviewForm = () => {
         if (this.props.method !== "DELETE") {
             return (<div >
-                <h5>What is your rating?</h5>
-                <Form.Check inline size="sm" type="radio" name="audience" label="1" onClick={() => this.setCheckbox("audience", true)} />
-                <Form.Check inline size="sm" type="radio" name="audience" label="2" onClick={() => this.setCheckbox("audience", true)} />
-                <Form.Check inline size="sm" type="radio" name="audience" label="3" onClick={() => this.setCheckbox("audience", true)} />
-                <Form.Check inline size="sm" type="radio" name="audience" label="4" onClick={() => this.setCheckbox("audience", true)} />
-                <Form.Check inline size="sm" type="radio" name="audience" label="5" onClick={() => this.setCheckbox("audience", true)} />
-                <Form.Control size="sm" type="input"  placeholder="Title" name="title" onChange={this.inputChange} />
-                <Form.Control size="sm" type="input" placeholder="Your Review (Up to 100 characters)" name="review" onChange={this.inputChange} />
+                <h5 style={{margin: "10px"}}>What is your rating?</h5>
+                <Form.Check inline size="md" type="radio" name="audience" label="1" onClick={() => this.setCheckbox("audience", true)} />
+                <Form.Check inline size="md" type="radio" name="audience" label="2" onClick={() => this.setCheckbox("audience", true)} />
+                <Form.Check inline size="md" type="radio" name="audience" label="3" onClick={() => this.setCheckbox("audience", true)} />
+                <Form.Check inline size="md" type="radio" name="audience" label="4" onClick={() => this.setCheckbox("audience", true)} />
+                <Form.Check inline size="md" type="radio" name="audience" label="5" onClick={() => this.setCheckbox("audience", true)} />
+                <Form.Control size="md" type="input"  placeholder="Title" name="title" onChange={this.inputChange} />
+                <Form.Control size="md" type="input" placeholder="Your Review (Up to 100 characters)" name="review" onChange={this.inputChange} />
             </div>)
         }
     }
@@ -120,11 +120,11 @@ export class ReviewForm extends Component {
                 </Col>
 
                 <Col style={{ width: "50%", height: "auto", marginTop: "0" }}>
-                    <div style={{ width: "100%", height: "auto", marginLeft: "150px", border: "1px solid black", padding: "15px" }}>
+                    <div style={{ width: "100%", height: "auto", marginLeft: "150px", border: "2px solid blue", padding: "25px" }}>
                         <Form onSubmit={this.checkImage}>
                             {this.setType()}
                             {this.setReviewForm()}
-                            <Button style={{ marginTop: 20, backgroundColor: "#F5F5F5", color: "#333333", border: "1.5px solid green" }} type="submit" >Submit</Button>
+                            <Button style={{ marginTop: 40, backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid green" }} type="submit" >Submit</Button>
                         </Form>
                     </div>
                 </Col>

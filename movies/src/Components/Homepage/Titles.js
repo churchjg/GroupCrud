@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import Sidebar from './SideBar'
+import { Col, Row, Container } from 'react-bootstrap'
 
-export default class ArtistLists extends React.Component {
+export default class Titles extends React.Component {
 
     constructor(props) {
         super(props);
@@ -14,25 +16,17 @@ export default class ArtistLists extends React.Component {
     }
 
     async loadLists() {
-
-        const data = await axios('https://musixjsonapi.herokuapp.com/api/artistlists');
-
+        const data = await axios("https://mernmovies.herokuapp.com");
         console.log(data.data.data);
-
-        this.setState({lists: data.data.data});
-
+        this.setState({ lists: data.data.data });
     }
-
-
     loadList(i) {
-
-        this.setState({ current: this.state.lists[i]} )
-
+        this.setState({ current: this.state.lists[i] })
     }
 
     async deleteList() {
 
-        await axios.delete(`https://musixjsonapi.herokuapp.com/api/artistlists/${this.state.current.slug}`);
+        await axios.delete(`https://mernmovies.herokuapp.com${this.state.current.slug}`);
 
         this.setState({
             lists: this.state.lists.filter(list => list._id !== this.state.current._id),
@@ -50,6 +44,11 @@ export default class ArtistLists extends React.Component {
     render() {
 
         if (this.state.current) return (
+
+            <Row style={{ height: "60%", width: "100%", marginTop: 15, color: "black", textAlign: "center" }} noGutters >
+                <Col xs="4" style={{ marginTop: 5, border: "5px solid red", textAlign: "center" }}>
+                    <Sidebar selectList={this.selectList} />
+                </Col>
             <section>
 
                 <div onClick={() => this.setState({current: null})}>
@@ -57,8 +56,8 @@ export default class ArtistLists extends React.Component {
                 </div>
 
                 <div>
-                    <h1>{this.state.current.name}</h1>
-                    <p>{this.state.current.description}</p>
+                    <h1>Some Top Movies</h1>
+                    <li>{this.state.current.title}</li>
 
                     <div>
 
@@ -70,12 +69,13 @@ export default class ArtistLists extends React.Component {
                 </div>
 
             </section>
+            </Row>
         )
 
         if (!this.state.lists.length) {
             return (
                 <section>
-                    <p>There are no Artist Lists</p>
+                    <p>There are no titles by that name</p>
                 </section>
             )
         }

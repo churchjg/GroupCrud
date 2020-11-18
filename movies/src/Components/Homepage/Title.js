@@ -12,16 +12,24 @@ export class Title extends Component {
         super(props)
         this.state = {
             listName: this.props.listName,
-             movies: []
+            movies: []
         }
     }
 
     async getMovies() {
         console.log("search")
-const data = await axios(`${url}/api/movies`)
-console.log(data);
+        const data = await axios(`${url}/api/movies`)
+        console.log(data);
     }
 
+    async loadLists() {
+        const data = await axios("https://mernmovies.herokuapp.com");
+        console.log(data.data.data);
+        this.setState({ lists: data.data.data });
+    }
+    loadList(i) {
+        this.setState({ current: this.state.lists[i] })
+    }
 
     fetchMovies = () => {
         fetch(`${url}/api/movies`)
@@ -35,8 +43,6 @@ console.log(data);
             })
 
     }
-
-
 
     componentDidMount = () => {
         this.getMovies()
@@ -56,7 +62,7 @@ console.log(data);
                             <div style={{ textAlign: "center" }}>
                                 <ul style={{ listStyle: "none", fontSize: "20px", paddingTop: 20, paddingBottom: 20 }}>
                                     <h2>Some Great Movies:</h2>
-                                    {<li>{this.state.movies.Title}</li>}
+                                    {<li>{this.state.movies.title}</li>}
                                 </ul>
                             </div>
                         </Col>
