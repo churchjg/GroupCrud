@@ -93,11 +93,11 @@ export class SubmissionReviewForm extends Component {
             return (<div style={{ width: "60%", marginLeft: 20 }}>
                 {this.formType()}
                 <Form style={{ marginBottom: 10 }}>
-                    <Form.Control size="sm" as="select" id="basic-nav-dropdown" name="reviewInfo" onChange={this.setFormType}>
+                    <Form.Control size="md" as="select" id="basic-nav-dropdown" name="reviewInfo" onChange={this.setFormType}>
                         <option>Select</option>
                         <option value="reviewInfo">Add</option>
                         <option value="reviewInfo">Update</option>
-                        <option value="reviewInfo">Delete</option>
+                        <option style={{color: "red"}} value="reviewInfo">Delete</option>
                     </Form.Control>
                 </Form>
                 {this.displayForm()}

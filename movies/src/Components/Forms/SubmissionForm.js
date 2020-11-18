@@ -68,13 +68,13 @@ export class SubmissionForm extends Component {
 
     formType = () => {
         if (this.props.method === "POST") {
-            return <h3>Choose "Add" in the Dropdown Menu to create a new Collection</h3>
+            return <h3 style={{ margin: "20px" }}>Choose "Add" in the Dropdown Menu to create a new Collection</h3>
         }
         else if (this.props.method === "PATCH") {
-            return <h3>Click "Update" in the Dropdown Menu to update a Collection </h3>
+            return <h3 style={{ margin: "20px" }}>Click "Update" in the Dropdown Menu to update a Collection </h3>
         }
         else if (this.props.method === "DELETE") {
-            return <h3>Select "Delete" in the Dropdown Menu to delete a Collection </h3>
+            return <h3 style={{ margin: "20px" }}>Select "Delete" in the Dropdown Menu to delete a Collection </h3>
         }
 
     }
@@ -93,11 +93,11 @@ export class SubmissionForm extends Component {
             return (<div style={{ width: "60%", marginLeft: 20 }}>
                 {this.formType()}
                 <Form style={{ marginBottom: 10 }}>
-                    <Form.Control size="sm" as="select" id="basic-nav-dropdown" name="movieInfo" onChange={this.setFormType}>
+                    <Form.Control size="md" as="select" id="basic-nav-dropdown" name="movieInfo" onChange={this.setFormType}>
                         <option>Select</option>
                         <option value="movieInfo">Add</option>
                         <option value="movieInfo">Update</option>
-                        <option value="movieInfo">Delete</option>
+                        <option style={{color:"red"}} value="movieInfo">Delete</option>
                     </Form.Control>
                 </Form>
                 {this.displayForm()}
