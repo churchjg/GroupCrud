@@ -23,8 +23,8 @@ function Sidebar(props) {
                     <Nav.Link as={Link} to="/api/collections/slug" >Update a Collection </Nav.Link>
                     <Nav.Link as={Link} to="/api/collections/slug" >Delete a Collection </Nav.Link>
                     <Nav.Link as={Link} to="/api/reviews" >Add a New Review</Nav.Link>
-                    <Nav.Link as={Link} to="/api/reviews/id" >Update a Review</Nav.Link>
-                    <Nav.Link as={Link} to="/api/reviews/id" >Delete a Review</Nav.Link>
+                    <Nav.Link as={Link} to="/api/reviews/:id" >Update a Review</Nav.Link>
+                    <Nav.Link as={Link} to="/api/reviews/:id" >Delete a Review</Nav.Link>
                 </h5>
             </Nav.Item>
         </Nav>

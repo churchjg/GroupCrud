@@ -6,6 +6,7 @@ import NavBar from './Components/Homepage/Navbar'
 import Homepage from './Components/Homepage/Homepage'
 import { Route } from 'react-router-dom'
 import SubmissionForm from './Components/Forms/SubmissionForm'
+import SubmissionReviewForm from './Components/Forms/SubmissionReviewForm'
 import LoginForm from './Components/Forms/LoginForm'
 import Title from './Components/Homepage/Title'
 
@@ -113,15 +114,21 @@ class App extends Component {
             <Route path="/api/collections/:slug"
               render={() => <SubmissionForm method="DELETE" />}
             />
-            <Route path="/api/reviews"
-              render={() => <SubmissionForm method="POST" />}
-            />
+            <Col>
+              <Route path="/api/reviews"
+                render={() => <SubmissionReviewForm method="POST" />}
+              />
+            </Col>
+            <Col>
             <Route path="/api/reviews/:id"
-              render={() => <SubmissionForm method="PATCH" />}
+              render={() => <SubmissionReviewForm method="PATCH" />}
             />
+            </Col>
+            <Col>
             <Route path="/api/reviews/:id"
-              render={() => <SubmissionForm method="DELETE" />}
+              render={() => <SubmissionReviewForm method="DELETE" />}
             />
+            </Col>
           </Col>
         </Row>
       </Container>
