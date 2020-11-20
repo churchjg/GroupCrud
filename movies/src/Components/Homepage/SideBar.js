@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Nav from 'react-bootstrap/Nav'
-import SearchForm from '../Forms/SearchForm'
+// import SearchForm from '../Forms/SearchForm'
 
 
 function Sidebar(props) {
@@ -13,7 +13,7 @@ function Sidebar(props) {
                 <h5 style={{ textDecoration: "none" }}>
                     <Nav.Link as={Link} to="/" onClick={() => props}>Home</Nav.Link>
                     <Nav.Link as={Link} to="/movies" onClick={() => props.loadList}>Title</Nav.Link>
-                    <SearchForm style={{ alignItems: "center", textAlign: "center",  }} onChange={() => props.handleChange} />
+                    {/* <SearchForm style={{ alignItems: "center", textAlign: "center",  }} onChange={() => props.handleChange} /> */}
 
                 </h5>
 
