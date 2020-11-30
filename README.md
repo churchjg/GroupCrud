@@ -3,10 +3,6 @@
 ## Description
    This frontend is part of a MERN project using a movie API that was built in the backend. The project has CRUD functionality which are the floowingf: Being able to retrieve movie titles with relevant information, add reviews, delete reviews, update a collection, delete a collection.
 
-   Example view in the browser
-
-   ![Sample View](movies/movie.jpeg)
-
 ## Features
    There are two features in this project.  
      
