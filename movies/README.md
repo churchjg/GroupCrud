@@ -5,10 +5,11 @@
 
    Example view in the browser
 
-   ![Sample View](movies/movie.jpeg)
+   ![Sample View](movies/movie.png)
 
 ## Features
    There are two features in this project.  
+     
      Jest and enzyme to test the different components and elements of this project, In the App.test.js file you       will find components have been tested for functionality.
 
      Authentication: Not functional at this time.  It's a work in progress.  Will update README file once functional.

@@ -38,11 +38,11 @@ class App extends Component {
   async fetchMovies() {
     console.log("search")
     const data = await axios.get(`${url}/api/movies`)
-    console.log("fetching movies",data.data.data);
+    console.log("fetching movies", data.data.data);
     this.setState({
-    movies: data.data.data
-  })
-}
+      movies: data.data.data
+    })
+  }
 
   // fetchMoviesTwo = () => {
   //   fetch(`${url}/`)
@@ -70,7 +70,7 @@ class App extends Component {
         </Row>
         <Row>
           <Col style={{ height: "95%", overflow: "scroll" }}>
-            <Route path="/"
+            <Route path="/GroupCrud"
               render={() => <Homepage url={url} />}
               exact />
 
@@ -94,7 +94,7 @@ class App extends Component {
               render={() => <Title movies={this.state.movies} />}
               exact
             />
-               {/* <Route path="/api/movies"
+            {/* <Route path="/api/movies"
               render={() => <SearchForm onChange={this.handleChange}/>}
             /> */}
 
@@ -107,13 +107,13 @@ class App extends Component {
             <Route path="/collections/:slug"
               render={() => <SubmissionForm method="DELETE" />}
             />
-             <Route path="/reviews/"
+            <Route path="/reviews/"
               render={() => <SubmissionReviewForm method="POST" />}
             />
-             <Route path="/reviews/:id"
+            <Route path="/reviews/:id"
               render={() => <SubmissionReviewForm method="PATCH" />}
             />
-             <Route path="/reviews/:id"
+            <Route path="/reviews/:id"
               render={() => <SubmissionReviewForm method="DELETE" />}
             />
 

@@ -1,5 +1,6 @@
 {
   "name": "movies",
+  "homepage": "http://churchjg.github.io/GroupCrud",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
