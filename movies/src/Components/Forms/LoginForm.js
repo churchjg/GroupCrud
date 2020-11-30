@@ -53,13 +53,16 @@ export class LoginForm extends Component {
     }
 
     handleSignUp(e) {
+
         e.preventDefault()
         axios.post('http://localhost:4000/auth/signup', {
             headers: { "Content-Type": "application/json" },
             email: this.state.email,
             password: this.state.password
+
         })
             .then(response => {
+
                 localStorage.token = response.data.token
                 this.setState({ isLoggedIn: true })
             })

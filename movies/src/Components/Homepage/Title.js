@@ -10,9 +10,9 @@ import { Col, Row, Container } from 'react-bootstrap'
 export class Title extends Component {
     constructor(props) {
         super(props)
-        // this.state = {
+        //this.state = {
         //     listName: this.props.listName,
-        //     movies: []
+        //    movies: []
         // }
     }
 
@@ -59,19 +59,19 @@ export class Title extends Component {
                         <Col xs="3" style={{ marginTop: 5, border: "5px solid red", textAlign: "center" }}>
                             <Sidebar selectList={this.selectList} />
                         </Col>
-                    
-                    <Col>
-                        <div style={{ textAlign: "center" }}>
-                            <ul style={{ listStyle: "none", fontSize: "20px", paddingTop: 20, textAlign: "center" }}>
-                                <h2 style ={{textDecoration: "underline"}}>Some Great Movie Options</h2>
-                                {this.props.movies.map((movie =>
-                                    <li>{movie.Title}</li>))}
-                            </ul>
-                        </div>
-                    </Col>
+
+                        <Col>
+                            <div style={{ textAlign: "center" }}>
+                                <ul style={{ listStyle: "none", fontSize: "20px", paddingTop: 20, textAlign: "center" }}>
+                                    <h2 style={{ textDecoration: "underline" }}>Some Great Movie Options</h2>
+                                    {this.props.movies.map((movie =>
+                                        <li>{movie.Title}</li>))}
+                                </ul>
+                            </div>
+                        </Col>
                     </Row>
                 </div>
-             
+
 
             </Container>
         )
