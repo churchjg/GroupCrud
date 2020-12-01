@@ -16,7 +16,8 @@ export class LoginForm extends Component {
             login: false,
             email: '',
             password: '',
-            isLoggedIn: false
+            isLoggedIn: false,
+            name: ""
         }
 
         this.handleLogOut = this.handleLogOut.bind(this)
@@ -47,37 +48,44 @@ export class LoginForm extends Component {
     }
 
     handleInput(e) {
+        e.preventDefault()
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
     handleSignUp(e) {
-
+        console.log("we're in handlesignup")
+        console.log(this.state.name, this.state.email, this.state.password)
         e.preventDefault()
-        axios.post('http://localhost:4000/auth/signup', {
+        axios.post('https://mernmovies.herokuapp.com/auth', {
             headers: { "Content-Type": "application/json" },
+            name: this.state.name,
             email: this.state.email,
             password: this.state.password
 
         })
             .then(response => {
+                console.log(response)
 
-                localStorage.token = response.data.token
-                this.setState({ isLoggedIn: true })
+                //            localStorage.token = response.data.token
+                //            this.setState({ isLoggedIn: true })
             })
+            //.then(data => console.log(data))
             .catch(err => console.log(err))
     }
 
     handleLogIn(e) {
         e.preventDefault()
-        axios.post('http://localhost:52458/auth/login', {
+        axios.post('https://mernmovies.herokuapp.com/auth/login', {
+            headers: { "Content-Type": "application/json" },
             email: this.state.email,
             password: this.state.password
         })
             .then(response => {
                 localStorage.token = response.data.token
                 this.setState({ isLoggedIn: true })
+                console.log("Logged in")
             })
             .catch(err => console.log(err))
     }
@@ -137,13 +145,27 @@ export class LoginForm extends Component {
                         <h2>Get Started Absolutely<span> Free!</span></h2>
                         <form>
                             <div className="form-group text-left">
+                                <label htmlFor="exampleInputName">Name</label>
+                                <input type="text"
+                                    onChange={this.handleInput}
+                                    className="form-control"
+                                    id="exampleInputName"
+                                    //value={this.state.name}
+                                    placeholder="Enter name"
+                                    name="name"
+                                />
+
+                            </div>
+                            <div className="form-group text-left">
                                 <label htmlFor="exampleInputEmail1">Email address</label>
                                 <input type="email"
                                     onChange={this.handleInput}
                                     className="form-control"
                                     id="email"
+                                    //value={this.state.email}
                                     aria-describedby="emailHelp"
                                     placeholder="Enter email"
+                                    name="email"
                                 />
                                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
@@ -153,7 +175,9 @@ export class LoginForm extends Component {
                                     onChange={this.handleInput}
                                     className="form-control"
                                     id="password"
+                                    //value={this.state.password}
                                     placeholder="Password"
+                                    name="password"
                                 />
                             </div>
 

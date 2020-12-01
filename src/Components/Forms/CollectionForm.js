@@ -31,7 +31,7 @@ export class CollectionForm extends Component {
         if (this.props.method !== "DELETE") {
             return (<div >
                 <Form.Control size="md" type="input" placeholder="Title" name="title" onChange={this.inputChange} />
-                <h5 style={{margin: "10px"}}>Is this a Professional Collection?</h5>
+                <h5 style={{ margin: "10px" }}>Is this a Professional Collection?</h5>
                 <Form.Check inline size="md" type="radio" name="released" label="Yes" onClick={() => this.setCheckbox("released", true)} />
                 <Form.Check inline size="md" type="radio" name="released" label="No" onClick={() => this.setCheckbox("released", true)} />
                 <Form.Control size="md" type="input" placeholder="Titles" name="title" onChange={this.inputChange} />
@@ -43,7 +43,7 @@ export class CollectionForm extends Component {
         }
     }
 
-    
+
 
     inputChange = e => {
         this.setState({
@@ -83,13 +83,13 @@ export class CollectionForm extends Component {
 
         let film = ""
         if (this.props.method === "POST") {
-            film = `https://mernmovies.herokuapp.com/api/collections${this.props.type}` 
+            film = `https://mernmovies.herokuapp.com/api/collections`
         }
         else if (this.props.method === "PATCH") {
-            film = `https://mernmovies.herokuapp.com/api/collections/:slug${this.props.type}${this.state.name}` 
+            film = `https://mernmovies.herokuapp.com/api/collections/:slug${this.props.type}${this.state.name}`
         }
         else {
-            film = `https://mernmovies.herokuapp.com/api/collections/:slug${this.props.type}${this.state.name}` 
+            film = `https://mernmovies.herokuapp.com/api/collections/:slug${this.props.type}${this.state.name}`
         }
 
         console.log(film)
@@ -115,6 +115,8 @@ export class CollectionForm extends Component {
 
 
     render() {
+        console.log("we're inside collections form", this.props)
+
         return (
 
 
@@ -128,7 +130,7 @@ export class CollectionForm extends Component {
                         <Form size="lg" onSubmit={this.checkImage}>
                             {this.setType()}
                             {this.setForm()}
-                            <Button style={{ marginTop: 50, backgroundColor: "#F5F5F5", color: "#333333", fontWeight: "bold" , border: "2px solid green" }} type="submit" >Submit</Button>
+                            <Button style={{ marginTop: 50, backgroundColor: "#F5F5F5", color: "#333333", fontWeight: "bold", border: "2px solid green" }} type="submit" >Submit</Button>
                         </Form>
                     </div>
                 </Col>
