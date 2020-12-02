@@ -5,7 +5,7 @@ import { Row, Col, Container } from 'react-bootstrap'
 import Sidebar from '../Homepage/SideBar'
 
 
-export class CollectionForm extends Component {
+export class ReviewForm extends Component {
     constructor(props) {
         super(props)
         this.state = {}
@@ -13,37 +13,36 @@ export class CollectionForm extends Component {
 
     setType = () => {
         if (this.props.method === "POST") {
-            return <h4>Please enter the details of what you wish to add!</h4>
+            return (<div> <h4>Please enter the details of the review you wish to add.</h4>
+                <Form.Control type="input" placeholder="Title (required)" name="reviewInfo0" onChange={this.pleaseWork} />
+            </div>)
         }
         else if (this.props.method === "PATCH") {
             return (<div> <h4>Please enter the details you wish to update!</h4>
-                <Form.Control type="input" placeholder="Name (required)" name="add" onChange={this.pleaseWork} />
+                <Form.Control type="input" placeholder="Title (required)" name="reviewInfo1" onChange={this.pleaseWork} />
             </div>)
         }
         else if (this.props.method === "DELETE") {
-            return (<div> <h4>Please enter the name of the collection you wish to delete.</h4>
-                <Form.Control type="input" placeholder="Name (required)" name="delete" onChange={this.pleaseWork} />
+            return (<div> <h4>Please enter the title of the review you wish to delete.</h4>
+                <Form.Control type="input" placeholder="Title (required)" name="reviewInfo2" onChange={this.pleaseWork} />
             </div>)
         }
     }
 
-    setForm = () => {
+    setReviewForm = () => {
         if (this.props.method !== "DELETE") {
             return (<div >
-                <Form.Control size="md" type="input" placeholder="Title" name="title" onChange={this.inputChange} />
-                <h5 style={{ margin: "10px" }}>Is this a Professional Collection?</h5>
-                <Form.Check inline size="md" type="radio" name="released" label="Yes" onClick={() => this.setCheckbox("released", true)} />
-                <Form.Check inline size="md" type="radio" name="released" label="No" onClick={() => this.setCheckbox("released", true)} />
-                <Form.Control size="md" type="input" placeholder="Titles" name="title" onChange={this.inputChange} />
-                <Form.Control size="md" type="input" placeholder="Major Genre" name="genre" onChange={this.inputChange} />
-                <Form.Control size="md" type="input" placeholder="Creative Type (Fantasy, Historial Fiction, etc.) " name="creative" onChange={this.inputChange} />
-                <Form.Control size="md" type="input" placeholder="Release Date" name="date" onChange={this.inputChange} />
-                <Form.Control size="md" type="input" placeholder="Movie Poster" name="image" onChange={this.inputChange} />
+                <h5 style={{margin: "10px"}}>What is your rating?</h5>
+                <Form.Check inline size="md" type="radio" name="audience" label="1" onClick={() => this.setCheckbox("audience", true)} />
+                <Form.Check inline size="md" type="radio" name="audience" label="2" onClick={() => this.setCheckbox("audience", true)} />
+                <Form.Check inline size="md" type="radio" name="audience" label="3" onClick={() => this.setCheckbox("audience", true)} />
+                <Form.Check inline size="md" type="radio" name="audience" label="4" onClick={() => this.setCheckbox("audience", true)} />
+                <Form.Check inline size="md" type="radio" name="audience" label="5" onClick={() => this.setCheckbox("audience", true)} />
+                <Form.Control size="md" type="input"  placeholder="Title" name="title" onChange={this.inputChange} />
+                <Form.Control size="md" type="input" placeholder="Your Review (Up to 100 characters)" name="review" onChange={this.inputChange} />
             </div>)
         }
     }
-
-
 
     inputChange = e => {
         this.setState({
@@ -73,23 +72,23 @@ export class CollectionForm extends Component {
             })
             this.setState({
                 image: finalArray
-            }, () => { this.submitForm(e) })
-        } else { this.submitForm(e) }
+            }, () => { this.submitReviewForm(e) })
+        } else { this.submitReviewForm(e) }
 
     }
 
-    submitForm = (e) => {
+    submitReviewForm = (e) => {
         console.log(this.props)
 
         let film = ""
         if (this.props.method === "POST") {
-            film = `https://mernmovies.herokuapp.com/api/collections`
+            film = `https://mernmovies.herokuapp.com/api/reviews${this.props.type}`
         }
         else if (this.props.method === "PATCH") {
-            film = `https://mernmovies.herokuapp.com/api/collections/:slug${this.props.type}${this.state.name}`
+            film = `https://mernmovies.herokuapp.com/api/reviews/:id${this.props.type}${this.state.name}`
         }
         else {
-            film = `https://mernmovies.herokuapp.com/api/collections/:slug${this.props.type}${this.state.name}`
+            film = `https://mernmovies.herokuapp.com/api/reviews/:id${this.props.type}${this.state.name}`
         }
 
         console.log(film)
@@ -112,28 +111,24 @@ export class CollectionForm extends Component {
                 console.log(err)
             })
     }
-
-
+    
     render() {
-        console.log("we're inside collections form", this.props)
-
         return (
-
-
             <Row style={{ height: "60%", width: "100%", marginTop: 15, color: "black", textAlign: "center" }} noGutters >
                 <Col xs="4" style={{ marginTop: 5, border: "5px solid red", textAlign: "center" }}>
                     <Sidebar selectList={this.selectList} />
                 </Col>
 
-                <Col style={{ width: "60%", height: "auto", marginTop: "0" }}>
-                    <div style={{ width: "100%", height: "60vh", marginLeft: "150px", border: "3px solid blue", padding: "25px" }}>
-                        <Form size="lg" onSubmit={this.checkImage}>
+                <Col style={{ width: "50%", height: "auto", marginTop: "0" }}>
+                    <div style={{ width: "100%", height: "auto", marginLeft: "150px", border: "2px solid blue", padding: "25px" }}>
+                        <Form onSubmit={this.checkImage}>
                             {this.setType()}
-                            {this.setForm()}
-                            <Button style={{ marginTop: 50, backgroundColor: "#F5F5F5", color: "#333333", fontWeight: "bold", border: "2px solid green" }} type="submit" >Submit</Button>
+                            {this.setReviewForm()}
+                            <Button style={{ marginTop: 40, backgroundColor: "#F5F5F5", color: "#333333", border: "2px solid green" }} type="submit" >Submit</Button>
                         </Form>
                     </div>
                 </Col>
+
             </Row>
 
 
@@ -144,4 +139,4 @@ export class CollectionForm extends Component {
 }
 
 
-export default CollectionForm
+export default ReviewForm

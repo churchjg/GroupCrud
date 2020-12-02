@@ -6,12 +6,12 @@ import Nav from 'react-bootstrap/Nav'
 
 function Sidebar(props) {
     return (
-        <Nav style={{ padding: "50px 40px", backgroundColor: "#D3D3D3" }}>
+        <Nav style={{ padding: "50px 40px", backgroundColor: "#D3D3D3"}}>
 
             <Nav.Item>
                 <h2 style={{ textDecoration: "underline", marginTop: "50px", marginBottom: "20px" }}>Browse Collections</h2>
                 <h5 style={{ textDecoration: "none" }}>
-                    <Nav.Link as={Link} to="/GroupCrud" onClick={() => props}>Home</Nav.Link>
+                    <Nav.Link as={Link} to="/" onClick={() => props}>Home</Nav.Link>
                     <Nav.Link as={Link} to="/movies" onClick={() => props.loadList}>Title</Nav.Link>
                     {/* <SearchForm style={{ alignItems: "center", textAlign: "center",  }} onChange={() => props.handleChange} /> */}
 
